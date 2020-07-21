@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { View, Text, Image, StyleSheet, ActivityIndicator, TouchableOpacity, FlatList } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 
 class Calls extends React.Component {
     // static navigationOptions = ({ navigation, navigationOptions }) => {
@@ -27,6 +28,512 @@ class Calls extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            data: [
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "11:30PM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00PM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "8:25PM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "6:18PM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 1,
+                    "name": "Adhikansh Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=1",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 1
+                },
+                {
+                    "Id": 2,
+                    "name": "Hrithik Mittal",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                },
+                {
+                    "Id": 3,
+                    "name": "kaushal Aggarwal",
+                    "dp": "http://placeimg.com/100/100/people?id=3",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 2
+                },
+                {
+                    "Id": 4,
+                    "name": "Sudhanshu Mishra",
+                    "dp": "http://placeimg.com/100/100/people?id=2",
+                    "lastMsg": "Hey brother what's up?",
+                    "stamp": "10:00AM",
+                    "status": "read",
+                    "countUnRead": 0
+                }
+            ],
             dataSource: [
                 {
                     "Id": 1,
@@ -536,14 +1043,31 @@ class Calls extends React.Component {
         };
     }
 
-    navigateToChatScreen = (item) => {
-        //TODO
-    }
+    searchFilterFunction = text => {
+        const newData = this.state.data.filter(item => {
+            const itemData = item.name.toUpperCase()
+            const textData = text.toUpperCase();
+
+            return itemData.indexOf(textData) > -1;
+        });
+
+        this.setState({
+            dataSource: newData,
+            text: text,
+        });
+    };
 
     render() {
         return (
             <>
                 <View style={{ flex: 1 }}>
+                    <SearchBar
+                        value={this.state.text}
+                        placeholder="Search Calls..."
+                        lightTheme
+                        onChangeText={text => this.searchFilterFunction(text)}
+                        autoCorrect={false}
+                    />
                     <FlatList
                         data={this.state.dataSource}
                         renderItem={({ item }) => <Item item={item} />}
