@@ -1,32 +1,8 @@
 /* eslint-disable */
 import React from 'react';
 import { View, Text, Image, StyleSheet, ActivityIndicator, TouchableOpacity, FlatList } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
 import { SearchBar } from 'react-native-elements';
-// import ToolbarAndroid from '@react-native-community/toolbar-android';
-
 class Chats extends React.Component {
-    // static navigationOptions = ({ navigation, navigationOptions }) => {
-    //     const { params = {} } = navigation.state;
-    //     return {
-    //         headerRight: (
-    //             <View>
-    //                 <TouchableOpacity onPress={() => params.handleClick()}>
-    //                     <Image style={{width: 10, height: 10}}  source={require('../search.png')} />
-    //                 </TouchableOpacity>
-    //             </View>
-    //         ),
-    //     }
-    // }
-
-    // onClickSearch = () => {
-    //     console.log("Okay")
-    // }
-
-    // componentDidMount() {
-    //     this.props.navigation.setParams({ handleClick: this.onClickSearch });
-    // }
-
     constructor(props) {
         super(props);
         this.state = {
@@ -1063,15 +1039,6 @@ class Chats extends React.Component {
         this.props.navigation.navigate('ChatScreen', { details: item });
     }
 
-    getData = async (key) => {
-        try {
-            const val = await AsyncStorage.getItem(key)
-        } catch (e) {
-            // saving error
-        }
-        return val
-    }
-
     render() {
         return (
             <>
@@ -1094,11 +1061,6 @@ class Chats extends React.Component {
 }
 
 function Item(props) {
-    // var countUnRead = 0
-    // const value = props.getData(props.item.Id)
-    // if( value !== null && value === 'read')
-
-
     return (
         <TouchableOpacity style={style.cardStyle} onPress={() => props.navigateToChatScreen(props.item)}>
 

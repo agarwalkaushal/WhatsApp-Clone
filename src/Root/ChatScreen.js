@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import { View, Text, Image, StyleSheet, ActivityIndicator, TouchableOpacity, FlatList } from 'react-native';
+import { View, Text, Image, StyleSheet, ActivityIndicator, TouchableOpacity, FlatList, TextInput } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 class ChatScreen extends React.Component {
@@ -15,24 +15,53 @@ class ChatScreen extends React.Component {
         };
     }
 
-    
-
     constructor(props) {
         super(props);
         this.state = {
+            text: null,
+            sentText: ['Lorem ipsum sit'],
         }
     }
 
     storeData = async (key) => {
         try {
-          await AsyncStorage.setItem(key, 'read')
+            await AsyncStorage.setItem(key, 'read')
         } catch (e) {
-          // saving error
+            // saving error
         }
-      }
+    }
 
-    componentDidMount () {
-       this.storeData(this.props.navigation.getParam('details').Id)
+    sendMessage = () => {
+        var data = this.state.sentText
+        data.push(
+            this.state.message
+        )
+        this.setState({
+            sentText: data,
+            message: '',
+        })
+    }
+
+    onChangeText = (text) => {
+        this.setState({
+            message: text,
+        })
+    }
+
+    componentDidMount() {
+        this.storeData(this.props.navigation.getParam('details').Id)
+    }
+
+    renderSentText = () => {
+        let html = []
+        this.state.sentText.forEach(element => {
+            html.push(
+                <View style={style.sentContainer}>
+                    <Text style={style.sentText}>{element}</Text>
+                </View>
+            )
+        });
+        return html;
     }
 
     render() {
@@ -59,24 +88,26 @@ class ChatScreen extends React.Component {
                         <View style={style.receiveContainer}>
                             <Text style={style.receiveText}>Lorem</Text>
                         </View>
-
-                        <View style={style.sentContainer}>
-                            <Text style={style.sentText}>Lorem ipsum sit</Text>
-                        </View>
                         <View style={style.sentContainer}>
                             <Text style={style.sentLinkText}>http://app.example.com/</Text>
                         </View>
+                        {this.renderSentText()}
                     </View>
 
                     <View style={style.footer}>
                         <TouchableOpacity style={style.textInput}>
-                            <Image  style={style.icon} source={require('../smile.png')} />
-                            <Text> Type a message</Text>
-                            <Image  style={style.icon} source={require('../attach.png')} />
-                            <Image  style={style.icon} source={require('../photo.png')} />
+                            <Image style={style.icon} source={require('../smile.png')} />
+                            <TextInput
+                                onChangeText={text => this.onChangeText(text)}
+                                placeholder="Type a message"
+                                onSubmitEditing={this.sendMessage}
+                                value={this.state.message}
+                            />
+                            <Image style={style.icon} source={require('../attach.png')} />
+                            <Image style={style.icon} source={require('../photo.png')} />
                         </TouchableOpacity>
                         <View style={style.microphoneContainer}>
-                        <Image  style={style.icon} source={require('../microphone.png')} />
+                            <Image style={style.icon} source={require('../microphone.png')} />
                         </View>
                     </View>
                 </View>

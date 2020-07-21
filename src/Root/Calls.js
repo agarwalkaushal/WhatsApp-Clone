@@ -4,27 +4,6 @@ import { View, Text, Image, StyleSheet, ActivityIndicator, TouchableOpacity, Fla
 import { SearchBar } from 'react-native-elements';
 
 class Calls extends React.Component {
-    // static navigationOptions = ({ navigation, navigationOptions }) => {
-    //     const { params = {} } = navigation.state;
-    //     return {
-    //         headerRight: (
-    //             <View>
-    //                 <TouchableOpacity onPress={() => params.handleClick()}>
-    //                     <Image source={require('../search.png')} />
-    //                 </TouchableOpacity>
-    //             </View>
-    //         ),
-    //     }
-    // }
-
-    // onClickSearch = () => {
-    //     console.log("Okay")
-    // }
-
-    // componentDidMount() {
-    //     this.props.navigation.setParams({ handleClick: this.onClickSearch });
-    // }
-
     constructor(props) {
         super(props);
         this.state = {
